@@ -17,10 +17,10 @@ class TransactionsRepository extends Repository<Transaction> {
       (accumulator: Balance, transaction: Transaction) => {
         switch (transaction.type) {
           case 'income':
-            accumulator.income += parseFloat(transaction.value.toString());
+            accumulator.income += Number(transaction.value);
             break;
           case 'outcome':
-            accumulator.outcome += parseFloat(transaction.value.toString());
+            accumulator.outcome += Number(transaction.value);
             break;
           default:
             break;
